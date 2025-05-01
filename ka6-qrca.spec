@@ -31,10 +31,12 @@ BuildRequires:	xz
 Requires(post,postun):	desktop-file-utils
 Obsoletes:	ka5-%{kaname} < %{version}
 Conflicts:	kde4-libksane >= 4.0
+ExcludeArch:	x32 i686
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Qrca is a simple application for Plasma Desktop and Plasma Mobile that lets you scan many barcode formats and create your own QR code images.
+Qrca is a simple application for Plasma Desktop and Plasma Mobile that
+lets you scan many barcode formats and create your own QR code images.
 
 %prep
 %setup -q -n %{kaname}-%{version}
