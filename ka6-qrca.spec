@@ -14,17 +14,31 @@ Group:		X11/Applications
 Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
 # Source0-md5:	9f09397d12da8d907f3124acf9d29813
 URL:		http://www.kde.org/
-BuildRequires:	Qt6Core-devel
+BuildRequires:	Qt6Core-devel >= %{qtver}
 BuildRequires:	Qt6Gui-devel >= %{qtver}
-BuildRequires:	Qt6Pdf-devel >= %{qtver}
-BuildRequires:	Qt6Test-devel
-BuildRequires:	Qt6Widgets-devel
+BuildRequires:	Qt6Multimedia-devel >= %{qtver}
+BuildRequires:	Qt6Quick-devel >= %{qtver}
+BuildRequires:	Qt6Svg-devel >= %{qtver}
+%{?with_tests:BuildRequires:	Qt6Test-devel >= %{qtver}}
+BuildRequires:	cmake >= 3.16
 BuildRequires:	gettext-tools
 BuildRequires:	kf6-extra-cmake-modules >= %{kframever}
+BuildRequires:	kf6-kconfig-devel >= %{kframever}
+BuildRequires:	kf6-kcontacts-devel >= %{kframever}
+BuildRequires:	kf6-kcoreaddons-devel >= %{kframever}
+BuildRequires:	kf6-kcrash-devel >= %{kframever}
+BuildRequires:	kf6-kdbusaddons-devel >= %{kframever}
+BuildRequires:	kf6-ki18n-devel >= %{kframever}
+BuildRequires:	kf6-kio-devel >= %{kframever}
+BuildRequires:	kf6-kirigami-devel >= %{kframever}
+BuildRequires:	kf6-knotifications-devel >= %{kframever}
+BuildRequires:	kf6-kservice-devel >= %{kframever}
+BuildRequires:	kf6-networkmanager-qt-devel >= %{kframever}
+BuildRequires:	kf6-prison-devel >= %{kframever}
+BuildRequires:	libstdc++-devel >= 6:8
 BuildRequires:	ninja
 BuildRequires:	qt6-build >= %{qtver}
-BuildRequires:	rpmbuild(macros) >= 1.164
-BuildRequires:	sane-backends-devel
+BuildRequires:	rpmbuild(macros) >= 1.736
 BuildRequires:	shared-mime-info
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
@@ -32,7 +46,6 @@ Requires(post,postun):	desktop-file-utils
 %requires_eq_to Qt6Core Qt6Core-devel
 Obsoletes:	ka5-%{kaname} < %{version}
 Conflicts:	kde4-libksane >= 4.0
-ExcludeArch:	x32 i686
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
