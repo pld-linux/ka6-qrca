@@ -49,8 +49,12 @@ Conflicts:	kde4-libksane >= 4.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Qrca is a simple application for Plasma Desktop and Plasma Mobile that
-lets you scan many barcode formats and create your own QR code images.
+Scan QR-Codes with your camera on phones and laptops, and create your
+own for easily sharing data between devices.
+
+%description -l pl.UTF-8
+Skanuj kody QR przez aparat w telefonie lub laptopie i twórz swoje
+własne kody, żeby móc je łatwo udostępniać pomiędzy urządzeniami.
 
 %prep
 %setup -q -n %{kaname}-%{version}
